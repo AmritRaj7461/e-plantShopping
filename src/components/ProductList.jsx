@@ -3,17 +3,30 @@ import { addItem } from '../redux/CartSlice';
 import './ProductList.css';
 
 const plants = [
-    { id: 1, name: "Aloe Vera", price: 200, category: "Indoor", img: "https://media.post.rvohealth.io/wp-content/uploads/sites/3/2025/04/aloe-vera-GettyImages-1473547826-Header-1024x575.jpg" },
-    { id: 2, name: "Snake Plant", price: 300, category: "Indoor", img: "https://i0.wp.com/buygreen.in/wp-content/uploads/2022/09/bird-nest-snake-plant.gif?fit=960%2C960&ssl=1" },
+
+    // Indoor (6)
+    { id: 1, name: "Aloe Vera", price: 200, category: "Indoor", img: "https://images.unsplash.com/photo-1587502537104-2c9a8a3c2d6b" },
+    { id: 2, name: "Snake Plant", price: 300, category: "Indoor", img: "https://images.unsplash.com/photo-1593482892290-f54927ae9cfe" },
     { id: 3, name: "Peace Lily", price: 250, category: "Indoor", img: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b" },
+    { id: 4, name: "Spider Plant", price: 180, category: "Indoor", img: "https://images.unsplash.com/photo-1589927986089-35812388d1f4" },
+    { id: 5, name: "ZZ Plant", price: 350, category: "Indoor", img: "https://images.unsplash.com/photo-1592150621744-aca64f48394a" },
+    { id: 6, name: "Areca Palm", price: 400, category: "Indoor", img: "https://images.unsplash.com/photo-1616627988035-7a7c7d9a5c43" },
 
-    { id: 4, name: "Rose", price: 150, category: "Outdoor", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93" },
-    { id: 5, name: "Tulip", price: 180, category: "Outdoor", img: "https://m.media-amazon.com/images/I/61oocbMpQML._AC_UF1000,1000_QL80_.jpg" },
-    { id: 6, name: "Sunflower", price: 220, category: "Outdoor", img: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6" },
+    // Outdoor (6)
+    { id: 7, name: "Rose", price: 150, category: "Outdoor", img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93" },
+    { id: 8, name: "Tulip", price: 180, category: "Outdoor", img: "https://images.unsplash.com/photo-1524593119771-f3c3f6aab54b" },
+    { id: 9, name: "Sunflower", price: 220, category: "Outdoor", img: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6" },
+    { id: 10, name: "Hibiscus", price: 200, category: "Outdoor", img: "https://images.unsplash.com/photo-1597848212624-64caa4d7a8db" },
+    { id: 11, name: "Marigold", price: 120, category: "Outdoor", img: "https://images.unsplash.com/photo-1508747703725-719777637510" },
+    { id: 12, name: "Jasmine", price: 250, category: "Outdoor", img: "https://images.unsplash.com/photo-1598899134739-24c46f58b8f6" },
 
-    { id: 7, name: "Cactus", price: 120, category: "Succulent", img: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514" },
-    { id: 8, name: "Jade Plant", price: 210, category: "Succulent", img: "https://images.unsplash.com/photo-1592150621744-aca64f48394a" },
-    { id: 9, name: "Echeveria", price: 190, category: "Succulent", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwdg99t4SSzjAZTMNAxqWBRi8xgdmyQNsX3g&s" }
+    // Succulent (6)
+    { id: 13, name: "Cactus", price: 120, category: "Succulent", img: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514" },
+    { id: 14, name: "Jade Plant", price: 210, category: "Succulent", img: "https://images.unsplash.com/photo-1592150621744-aca64f48394a" },
+    { id: 15, name: "Echeveria", price: 190, category: "Succulent", img: "https://images.unsplash.com/photo-1509423350716-97f2360af2e4" },
+    { id: 16, name: "Aloe Juvenna", price: 170, category: "Succulent", img: "https://images.unsplash.com/photo-1524593119771-f3c3f6aab54b" },
+    { id: 17, name: "Haworthia", price: 160, category: "Succulent", img: "https://images.unsplash.com/photo-1598899134739-24c46f58b8f6" },
+    { id: 18, name: "Sedum", price: 140, category: "Succulent", img: "https://images.unsplash.com/photo-1508747703725-719777637510" }
 ];
 
 export default function ProductList() {
@@ -44,7 +57,7 @@ export default function ProductList() {
 
                                         <button
                                             disabled={inCart}
-                                            onClick={() => dispatch(addToCart(p))}
+                                            onClick={() => dispatch(addItem(p))}
                                         >
                                             {inCart ? "Added ✅" : "Add to Cart"}
                                         </button>

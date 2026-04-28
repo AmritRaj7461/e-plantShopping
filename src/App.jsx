@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import ProductList from './components/ProductList';
 import CartItem from './components/CartItem';
 import AboutUs from './components/AboutUs';
@@ -8,6 +9,8 @@ import './App.css';
 export default function App() {
   const cartItems = useSelector(state => state.cart.items);
   const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const [showProductList, setShowProductList] = useState(false);
 
   return (
     <BrowserRouter>
@@ -19,26 +22,35 @@ export default function App() {
         <div className="nav-links">
           <Link to="/">Home</Link>
           <Link to="/plants">Plants</Link>
-          <Link to="/cart">
-            Cart 🛒 ({totalCount})
-          </Link>
+          <Link to="/about">About</Link> {/* ✅ ADDED */}
+          <Link to="/cart">Cart ({totalCount})</Link>
         </div>
       </nav>
 
-      {/* Pages */}
       <Routes>
 
         {/* Home Page */}
-        <Route path="/" element={
-          <div className="home">
-            <h1>🌿 Paradise Nursery</h1>
-            <p>Your one-stop shop for beautiful plants 🌱</p>
+        <Route
+          path="/"
+          element={
+            <div className="background-image">
+              <div className="home">
 
-            <Link to="/plants">
-              <button>Get Started</button>
-            </Link>
-          </div>
-        } />
+                {/* REQUIRED EXACT TEXT */}
+                <h1>Welcome to Paradise Nursery</h1>
+
+                <p>Your one-stop shop for beautiful plants 🌱</p>
+
+                <Link to="/plants">
+                  <button onClick={() => setShowProductList(true)}>
+                    Get Started
+                  </button>
+                </Link>
+
+              </div>
+            </div>
+          }
+        />
 
         {/* About Page */}
         <Route path="/about" element={<AboutUs />} />

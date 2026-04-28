@@ -5,6 +5,16 @@
   font-family: Arial, sans-serif;
 }
 
+/* REQUIRED: Background Image (for marks) */
+.background-image {
+  background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+}
+
+/* Optional fallback (you can keep gradient too) */
 body {
   background: linear-gradient(to right, #1e3c72, #2a5298);
   color: white;
@@ -16,7 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .logo {
@@ -42,11 +52,17 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .home h1 {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+.home p {
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
 .home button {

@@ -32,15 +32,34 @@ export default function CartItem() {
                                 <p>Total: ₹{i.price * i.quantity}</p>
 
                                 <div className="qty">
-                                    <button onClick={() => dispatch(decreaseQty(i.id))}>-</button>
+                                    <button
+                                        onClick={() => {
+                                            if (i.quantity === 1) {
+                                                dispatch(removeItem(i.id));
+                                            } else {
+                                                dispatch(updateQuantity({ id: i.id, type: 'dec' }));
+                                            }
+                                        }}
+                                    >
+                                        -
+                                    </button>
+
                                     <span>{i.quantity}</span>
-                                    <button onClick={() => dispatch(increaseQty(i.id))}>+</button>
+
+                                    <button
+                                        onClick={() =>
+                                            dispatch(updateQuantity({ id: i.id, type: 'inc' }))
+                                        }
+                                    >
+                                        +
+                                    </button>
                                 </div>
                             </div>
 
+                            {/* REQUIRED CLASS NAME */}
                             <button
-                                className="delete"
-                                onClick={() => dispatch(removeFromCart(i.id))}
+                                className="cart-item-delete"
+                                onClick={() => dispatch(removeItem(i.id))}
                             >
                                 ❌
                             </button>
@@ -50,12 +69,17 @@ export default function CartItem() {
                     <h3 className="total">Total Amount: ₹{total}</h3>
 
                     <div className="cart-actions">
-                        <button className="btn" onClick={() => alert("Coming Soon 🚀")}>
+                        <button
+                            className="btn"
+                            onClick={() => alert("Coming Soon")}
+                        >
                             Checkout
                         </button>
 
                         <Link to="/plants">
-                            <button className="btn secondary">Continue Shopping</button>
+                            <button className="btn secondary">
+                                Continue Shopping
+                            </button>
                         </Link>
                     </div>
                 </>
