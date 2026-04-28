@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../redux/CartSlice';
+import { addItem } from '../redux/CartSlice';
 import './ProductList.css';
 
 const plants = [
